@@ -23,7 +23,10 @@ User.init(
         isEmail: true,
       },
     }, 
-    password: DataTypes.STRING
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false
+    }
   },
   {
     // hooks: {
@@ -43,5 +46,4 @@ User.init(
     modelName: 'user',
   }
 );
-
 module.exports = User;

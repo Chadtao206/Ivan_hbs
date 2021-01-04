@@ -7,7 +7,6 @@ const helpers = require('./utils/helpers');
 const {User} = require("./models");
 
 const sequelize = require('./config/connection');
-const { resourceUsage } = require('process');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -44,6 +43,7 @@ app.get("/cart", (req,res)=> {
     res.render("cart")
 })
 
-sequelize.sync({ force: false }).then(() => {
+sequelize.sync({ force: false }).then((con) => {
+  console.log(con)
   app.listen(PORT, () => console.log('Now listening'));
 });
